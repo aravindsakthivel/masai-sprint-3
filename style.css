@@ -10,9 +10,7 @@
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     body{
-        background-color: black;
         display: flex;
-        color: white;
         flex-direction: column;
         margin: 0;
     }
@@ -29,7 +27,7 @@
         flex-direction: row;
         background-color: rgba(0, 153, 255, 0.692);
         padding: 10px;
-        padding-bottom: 130px;
+        padding-bottom: 80px;
         border-bottom-left-radius: 70px;
         border-bottom-right-radius: 70px;
         justify-content: center;
