@@ -1,25 +1,26 @@
-var valueHolder = []
+var searchHolder = []
+var acquiredData
 
 
 function inputOperation(){
     var inputData = document.getElementById('coin_name').value.toLowerCase()
-    valueHolder.push(inputData)
+    searchHolder.push(inputData)
     getCryptoData(inputData)
 }
 
 function getCryptoData(data){
     var xhrcrypto = new XMLHttpRequest()
     var cryptoApi = 'https://api.coingecko.com/api/v3/coins/'
-    console.log(cryptoApi + data + "?market_data=true")
+    // console.log(cryptoApi + data + "?market_data=true")
     xhrcrypto.open("GET", cryptoApi + data + "?market_data=true")
     xhrcrypto.send()
     xhrcrypto.onload = function(){
-        var acquiredData = JSON.parse(this.response)
+        acquiredData = JSON.parse(this.response)
         processData.call(acquiredData)
     }
 }
 
-function processData(){
+function processData(curncy){
     // console.log(this)
     // console.log(this.market_data.market_cap.usd)
     var result = document.getElementById('result')
@@ -37,19 +38,49 @@ function processData(){
     var rank = document.createElement('p')
     rank.innerText = "Rank: " + this.market_cap_rank
 
+    var coinValue = document.createElement('div')
+    coinValue.setAttribute('id', 'coin_value')
     var coinPrice = document.createElement('p')
-    coinPrice.innerText = '1 ' + this.id + ' in USD: ' + this.market_data.current_price.usd
+    var otherValue = this.market_data.current_price[curncy] || this.market_data.current_price.usd
+    console.log(this.market_data.current_price[curncy])
+    var preference = 'USD'
+    if (curncy === undefined){
+        preference = 'USD'
+    }
+    else{
+        preference = curncy.toUpperCase()
+    }
+    coinPrice.innerText = '1 ' + this.id + ' in '+ preference + " " + otherValue
+    var currencySelect = document.createElement('select')
+    currencySelect.setAttribute('id', 'currency_option')
+    currencySelect.setAttribute('onchange', 'changeCurrency()')
+    for (var i = 0; i < Object.keys(this.market_data.current_price).length; i++){
+        var currencyOption = document.createElement('option')
+        currencyOption.setAttribute('value', Object.keys(this.market_data.current_price)[i])
+        currencyOption.innerText = Object.keys(this.market_data.current_price)[i]
+        currencySelect.append(currencyOption)
+    }
 
+    coinValue.append(coinPrice, currencySelect)
     var marketCap = document.createElement('p')
     marketCap.innerText = 'Market capitalization in USD: ' + this.market_data.market_cap.usd
 
-    var description = document.createElement('p')
-    description.innerText = this.description.en
-    info_box.append(rank, coinPrice, marketCap, description)
+    var homepage = document.createElement('a')
+    homepage.setAttribute('href', this.links.homepage['0'])
+    homepage.setAttribute('target', '_blank')
+    homepage.innerText = 'Official link'
+    info_box.append(rank, coinValue, marketCap, homepage)
 
     block.append(name_box, info_box)
     result.append(block)
 
+}
+
+
+function changeCurrency(){
+    var curOpt = document.getElementById('currency_option').value
+    console.log(acquiredData)
+    processData.call(acquiredData, curOpt)
 }
 
 
