@@ -102,7 +102,7 @@ function totalCoins(){
         console.log(Object.keys(coinData).length)
         var result = document.getElementById('result')
         result.innerText = 'There is a total of ' + Object.keys(coinData).length + ' Cryptocurrency (approx)'
-        result.setAttribute('class', 'fail')
+        result.setAttribute('style' , "color:white")
     }
 }
 
