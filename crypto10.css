@@ -1,0 +1,35 @@
+body{
+    background-color: grey;
+}
+
+.total_block{
+    display: flex;
+    border: 8px solid salmon;
+    background-color: azure;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+img{
+    width: 11%;
+}
+
+
+.total_block div .block{
+    display: flex;
+    flex-direction: column;
+}
+
+.total_block div{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+}
+
+.block p{
+    margin-left: 40px;
+}
+
+.total_block div >.block:nth-child(1){
+    width: 70%;
+}
