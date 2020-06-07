@@ -120,6 +120,52 @@
         color: white;
         font-size: larger;
     }
+    #comparison{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+    }
+    #comparison > *{
+        margin-left: 10px;
+        background-color: tomato;
+        border: 2px solid tomato;
+        border-radius: 5px ;
+        padding: 10px;
+        margin-bottom: 50px;
+        outline: none;
+    }
+    #comparison > input{
+        background-color: white;
+        border: 2px solid tomato;
+    }
+    .description{
+        display: flex;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        text-align: justify;
+        background-color: rgba(74, 168, 231, 0.692);
+        margin: 20px;
+        padding: 30px;
+        border: 5px solid gray;
+        border-radius: 10px;
+    }
+    .info_change{
+        color: white;
+        display: flex;
+        background-color: rgba(74, 168, 231, 0.692);
+        margin: 20px;
+        padding: 10px;
+        border: 5px solid gray;
+        border-radius: 10px;
+    }
+    .info_change > *{
+        margin-left: 20px;
+    }
+    #compare_op {
+        background-color: aqua;
+    }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
