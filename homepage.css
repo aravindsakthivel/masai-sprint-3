@@ -1,13 +1,369 @@
 /* Extra small devices (phones, 600px and down) */
-/* @media only screen and (max-width: 600px) {...} */
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-/* @media only screen and (min-width: 600px) {...} */
-
-/* Medium devices (landscape tablets, 768px and up) */
-/* @media only screen and (min-width: 768px) {...} */
-
-/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 600px) {
+    body{
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        background-color: black;
+    }
+    #head_tag{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color:white;
+    }
+    h1{
+        color: black;
+        border: 0;
+        margin: 0;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: 10px;
+        font-family: 'Metal Mania', cursive;
+    }
+    a{
+        color: rgb(15, 209, 48);
+        border: 0;
+        margin: 0;
+        margin-left: 10px;
+        margin-right: 0;
+        font-family: 'Metal Mania', cursive;
+        font-size: 10px;
+        text-decoration: none;
+        font-family: 'Architects Daughter', cursive;
+    }
+    #input_box{
+        display: flex;
+        flex-direction: row;
+        background-color: rgba(0, 153, 255, 0.692);
+        padding: 10px;
+        padding-bottom: 20px;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        justify-content: center;
+        background-size: contain;
+        background-image: url('resources/cryptocurrency.jpg');
+    }
+    #input_box > *{
+        outline: none;
+        padding-bottom: 2px;
+        border: 1px solid white;
+        margin-top: 10px;
+        margin-left: 15px;
+        border-radius: 5px;
+        height: 10px;
+        width: 30%;
+        opacity: 0.8;
+        color: black;
+    }
+    #input_box button{
+        height: 18px;
+        width: 10%;
+        background-color: rgb(238, 61, 90);
+        border: 1px solid rgb(206, 49, 49);
+        border-radius: 7px;
+        opacity: 1;
+    }
+    #result{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 10px;
+        font-family: 'Roboto', sans-serif;
+        color: black;
+    }
+    #result > div{
+        background-color: rgb(148, 194, 206);
+        padding: 5px;
+        border-radius: 7px;
+        border: 5px solid rgb(148, 194, 206);
+    }
+    #result > div >div:nth-child(1){
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    #result > div > div:nth-child(1) > *{
+        /* margin-left: 10px; */
+        margin-right: 5px;
+        min-width: 20px;
+        height: 15px;
+        margin-top: 15px;
+        font-size: 20px;
+        font-weight: 900;
+    }
+    #coin_value{
+        display: flex;
+        flex-direction: row;
+    }
+    #coin_value select{
+        margin-left: 10px;
+        width: 20%;
+        height: 7%;
+        margin-top: 16px;
+        background-color: darkseagreen;
+        opacity: 0.8;
+        outline: none;
+    }
+    .fail{
+        color: white;
+        font-size: larger;
+    }
+    #comparison{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+    }
+    #comparison > *{
+        margin-left: 5px;
+        background-color: tomato;
+        border: 2px solid tomato;
+        border-radius: 5px ;
+        padding: 5px;
+        margin-bottom: 20px;
+        outline: none;
+    }
+    #comparison > input{
+        background-color: white;
+        border: 2px solid tomato;
+    }
+    .description{
+        display: flex;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        text-align: justify;
+        background-color: rgba(74, 168, 231, 0.692);
+        margin: 5px;
+        padding: 8px;
+        border: 5px solid gray;
+        border-radius: 10px;
+        font-size: 10px;
+    }
+    .info_change{
+        color: white;
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(74, 168, 231, 0.692);
+        margin: 5px;
+        padding: 5px;
+        border: 5px solid gray;
+        border-radius: 10px;
+    }
+    .info_change > *{
+        margin-left: 5px;
+        margin-bottom: 5px;
+    }
+    #compare_op {
+        background-color: aqua;
+    }
+    #history_search{
+        display: flex;
+        flex-direction: column;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        text-align: justify;
+        background-color: rgba(74, 231, 184, 0.692);
+        margin: 5px;
+        padding: 5px;
+        border: 5px solid gray;
+        border-radius: 10px;
+    }
+    #history_search > *:nth-child(1) , #history_search > *:nth-child(2){
+        margin-left: 5px;
+        margin-right: 5px;
+        border-radius: 5px ;
+        margin-top: 5px;
+        border: 2px solid tomato;
+        padding: 2px;
+        outline: none;
+    }
+    #history_search p{
+        font-size: 10px;
+    }
+}
+@media only screen and (min-width: 600px) {
+    body{
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        background-color: black;
+    }
+    #head_tag{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color:white;
+    }
+    h1{
+        color: black;
+        border: 0;
+        margin: 0;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: 15px;
+        font-family: 'Metal Mania', cursive;
+    }
+    a{
+        color: rgb(15, 209, 48);
+        border: 0;
+        margin: 0;
+        margin-left: 10px;
+        margin-right: 0;
+        font-family: 'Metal Mania', cursive;
+        font-size: 12px;
+        text-decoration: none;
+        font-family: 'Architects Daughter', cursive;
+    }
+    #input_box{
+        display: flex;
+        flex-direction: row;
+        background-color: rgba(0, 153, 255, 0.692);
+        padding: 10px;
+        padding-bottom: 60px;
+        border-bottom-left-radius: 70px;
+        border-bottom-right-radius: 70px;
+        justify-content: center;
+        background-size: contain;
+        background-image: url('resources/cryptocurrency.jpg');
+    }
+    #input_box > *{
+        outline: none;
+        padding-bottom: 2px;
+        border: 1px solid white;
+        margin-top: 30px;
+        margin-left: 15px;
+        border-radius: 5px;
+        height: 20px;
+        width: 30%;
+        opacity: 0.8;
+        color: black;
+    }
+    #input_box button{
+        height: 30px;
+        width: 5%;
+        background-color: rgb(238, 61, 90);
+        border: 1px solid rgb(206, 49, 49);
+        border-radius: 7px;
+        opacity: 1;
+    }
+    #result{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 25px;
+        font-family: 'Roboto', sans-serif;
+        color: black;
+    }
+    #result > div{
+        background-color: rgb(148, 194, 206);
+        padding: 20px;
+        border-radius: 10px;
+        border: 5px solid rgb(148, 194, 206);
+    }
+    #result > div >div:nth-child(1){
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    #result > div > div:nth-child(1) > *{
+        /* margin-left: 10px; */
+        margin-right: 5px;
+        min-width: 25px;
+        height: 20px;
+        margin-top: 20px;
+        font-size: 25px;
+        font-weight: 900;
+    }
+    #coin_value{
+        display: flex;
+        flex-direction: row;
+    }
+    #coin_value select{
+        margin-left: 10px;
+        width: 20%;
+        height: 7%;
+        margin-top: 16px;
+        background-color: darkseagreen;
+        opacity: 0.8;
+        outline: none;
+    }
+    .fail{
+        color: white;
+        font-size: larger;
+    }
+    #comparison{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+    }
+    #comparison > *{
+        margin-left: 10px;
+        background-color: tomato;
+        border: 2px solid tomato;
+        border-radius: 5px ;
+        padding: 10px;
+        margin-bottom: 30px;
+        outline: none;
+    }
+    #comparison > input{
+        background-color: white;
+        border: 2px solid tomato;
+    }
+    .description{
+        display: flex;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        text-align: justify;
+        background-color: rgba(74, 168, 231, 0.692);
+        margin: 10px;
+        padding: 10px;
+        border: 5px solid gray;
+        border-radius: 10px;
+    }
+    .info_change{
+        color: white;
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(74, 168, 231, 0.692);
+        margin: 10px;
+        padding: 5px;
+        border: 5px solid gray;
+        border-radius: 10px;
+    }
+    .info_change > *{
+        margin-left: 10px;
+    }
+    #compare_op {
+        background-color: aqua;
+    }
+    #history_search{
+        display: flex;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        text-align: justify;
+        background-color: rgba(74, 231, 184, 0.692);
+        margin: 10px;
+        padding: 5px;
+        border: 5px solid gray;
+        border-radius: 10px;
+    }
+    #history_search > *:nth-child(1) , #history_search > *:nth-child(2){
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 5px ;
+        border: 2px solid tomato;
+        padding: 5px;
+        outline: none;
+    }
+}
 @media only screen and (min-width: 992px) {
     body{
         display: flex;
@@ -37,6 +393,7 @@
         border: 0;
         margin: 0;
         margin-left: 50px;
+        font-size: 30px;
         margin-right: 50px;
         font-family: 'Metal Mania', cursive;
     }
@@ -154,6 +511,7 @@
     .info_change{
         color: white;
         display: flex;
+        flex-direction: row;
         background-color: rgba(74, 168, 231, 0.692);
         margin: 20px;
         padding: 10px;
@@ -161,12 +519,29 @@
         border-radius: 10px;
     }
     .info_change > *{
-        margin-left: 20px;
+        margin-left: 30px;
     }
     #compare_op {
         background-color: aqua;
     }
+    #history_search{
+        display: flex;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        text-align: justify;
+        background-color: rgba(74, 231, 184, 0.692);
+        margin: 20px;
+        padding: 10px;
+        border: 5px solid gray;
+        border-radius: 10px;
+    }
+    #history_search > *:nth-child(1) , #history_search > *:nth-child(2){
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 5px ;
+        border: 2px solid tomato;
+        padding: 10px;
+        outline: none;
+    }
 }
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-/* @media only screen and (min-width: 1200px) {...} */

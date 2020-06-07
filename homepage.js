@@ -1,6 +1,7 @@
 var searchHolder = []
-var acquiredData
-var curOpt
+var acquiredData;
+var curOpt;
+var coinHistoryData;
 
 
 function inputOperation(){
@@ -143,11 +144,28 @@ function moreInfo(){
     infoChange.append(lowValue, highValue, maxCap, circulation)
     infoChange.setAttribute('class', 'info_change')
 
+    var priceChangeBox = document.createElement('div')
+    priceChangeBox.setAttribute('id', 'history_search')
+    var priceChangeDate = document.createElement('input')
+    priceChangeDate.setAttribute('id', 'dateEntered')
+    priceChangeDate.setAttribute('placeholder', 'eg. 30-12-2017')
+    var priceChangeBtn = document.createElement('button')
+    priceChangeBtn.setAttribute('onclick', 'getHistory()')
+    priceChangeBtn.innerText = 'Find'
+    var priceHistory = document.createElement('p')
+    if (coinHistoryData === undefined){
+        null
+    }
+    else{
+        priceHistory.textContent = coinHistoryData
+    }
+    priceChangeBox.append(priceChangeDate, priceChangeBtn, priceHistory)
+
     var desc = acquiredData.description.en
     var box = document.createElement('div')
     box.setAttribute('class', 'description')
     box.innerText = desc
-    displayBlock.append(infoChange, box)
+    displayBlock.append(infoChange, priceChangeBox, box)
 
 }
 
@@ -179,6 +197,8 @@ function compareCoin(){
     result.innerText = ""
     var comparePage = document.getElementById('comparison')
     comparePage.innerText = ""
+    var displayBlock = document.getElementById('more_info')
+    displayBlock.innerHTML = ""
     var compBlock = document.createElement('div')
     compBlock.setAttribute('id', 'compare_op')
     var firstCoinValue = document.createElement('p')
@@ -187,6 +207,22 @@ function compareCoin(){
     secondCoinValue.textContent = "The value of one " + this.id.toUpperCase() + " in USD : "+ this.market_data.current_price.usd
     compBlock.append(firstCoinValue, secondCoinValue)
     result.append(compBlock)
+}
+
+
+function getHistory(){
+    var xhrHistory = new XMLHttpRequest()
+    var url = 'https://api.coingecko.com/api/v3/coins/'
+    var date = document.getElementById('dateEntered').value
+    xhrHistory.open('GET', url + acquiredData.id + '/history?date='+ date)
+    console.log(url + acquiredData.id + '/history?date='+ date)
+    xhrHistory.send()
+    xhrHistory.onload = function(){
+        var localData = JSON.parse(this.response) 
+        coinHistoryData = "The price of " + acquiredData.id.toUpperCase() + " on "+ date + " in USD : " + localData.market_data.current_price.usd
+        console.log(coinHistoryData)
+        moreInfo()
+    }
 }
 
 
@@ -199,15 +235,15 @@ function totalCoins(){
         var coinData = JSON.parse(this.response)
         // console.log(Object.keys(coinData).length)
         var result = document.getElementById('result')
-        result.innerText = 'There is a total of ' + Object.keys(coinData).length + ' Cryptocurrency (approx)'
+        var dataCount = document.createElement('div')
+        dataCount.innerText = 'There is a total of ' + Object.keys(coinData).length + ' Cryptocurrency (approx)' + " on "+ new Date()
+        result.append(dataCount)
         result.setAttribute('style' , "color:white")
     }
 }
 
-
-
 window.addEventListener('load', function(){
+    totalCoins()
     var searchBtn = this.document.getElementById('get_data')
     searchBtn.addEventListener('click', inputOperation)
-    totalCoins()
 })
