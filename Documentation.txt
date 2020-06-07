@@ -1,0 +1,6 @@
+product uses:
+   Information about any cryptocurrency can be availed and its value will given in required currency format
+   comparison of cryptocurrency is available
+   top 10 cryptocurrency live data is available
+
+   demo images are in the images folder 
